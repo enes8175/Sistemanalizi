@@ -1,4 +1,4 @@
-// server.js
+
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// MongoDB'ye bağlanma
+
 mongoose.connect('mongodb://localhost:27017/mydatabase', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,7 +18,7 @@ db.once('open', () => {
   console.log('MongoDB bağlantısı başarılı.');
 });
 
-// Mongoose model tanımı
+
 const questionSchema = new mongoose.Schema({
   question: { type: String, required: true },
   answers: [
@@ -31,16 +31,16 @@ const questionSchema = new mongoose.Schema({
 
 const Question = mongoose.model('Question', questionSchema);
 
-// Express middleware'leri
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Ana sayfa için HTML dosyasını sunma
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// POST isteği - Soru gönderme
+
 app.post('/submit-question', async (req, res) => {
   const questionText = req.body.question;
   try {
@@ -52,7 +52,7 @@ app.post('/submit-question', async (req, res) => {
   }
 });
 
-// GET isteği - Tüm soruları alma
+
 app.get('/get-questions', async (req, res) => {
   try {
     const questions = await Question.find({});
@@ -62,7 +62,7 @@ app.get('/get-questions', async (req, res) => {
   }
 });
 
-// POST isteği - Cevap gönderme
+
 app.post('/submit-answer/:questionId', async (req, res) => {
   const questionId = req.params.questionId;
   const { answer, postedBy } = req.body;
@@ -84,10 +84,10 @@ app.post('/submit-answer/:questionId', async (req, res) => {
   }
 });
 
-// Statik dosyaları sunma
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Express uygulamasını dinlemeye başlama
+
 app.listen(port, () => {
   console.log(`Sunucu http://localhost:${port} adresinde çalışıyor.`);
 });

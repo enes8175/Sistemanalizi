@@ -1,23 +1,20 @@
-/* public/css/style.css */
-
-/* Genel stil */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Yatay merkezleme */
-  align-items: center; /* Dikey merkezleme */
+  justify-content: center; 
+  align-items: center; 
   min-height: 100vh;
   flex-direction: column;
   color: #343a40;
 }
 
-/* Container */
+
 .container {
   width: 95%;
-  max-width: 1000px; /* Maksimum genişlik ayarı */
+  max-width: 1000px; 
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -26,10 +23,10 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center; /* İçeriği ortalama */
+  align-items: center; 
 }
 
-/* Başlık */
+
 h1 {
   color: #495057;
   font-size: 28px;
@@ -37,10 +34,10 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Form */
+
 form {
   width: 100%;
-  max-width: 800px; /* Form genişliği */
+  max-width: 800px; 
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -78,7 +75,7 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Sorular ve Cevaplar */
+
 div#questions {
   width: 100%;
   max-width: 800px; 
@@ -145,7 +142,7 @@ div#questions li {
   background-color: #218838;
 }
 
-/* Medya Sorguları - Duyarlı Tasarım */
+
 @media (max-width: 1200px) {
   .container {
     width: 100%;
@@ -154,7 +151,7 @@ div#questions li {
 
   form input[type="text"],
   .answerForm input[type="text"] {
-    width: calc(100% - 20px); /* Boşluk payını çıkartarak tam genişlikte */
+    width: calc(100% - 20px); 
   }
 
   form button,
